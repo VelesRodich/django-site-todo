@@ -1,0 +1,19 @@
+{% extends 'todo/base.html' %}
+
+
+{% block content %}
+
+    {% csrf_token %}
+
+    <h1>Домашняя страница приложения</h1>
+    {% if user.is_authenticated %}
+    
+    <br><br><a href="{% url 'todo:createtodo' %}">Создать задачу</a>
+    <br><br><a href="{% url 'todo:currenttodos' %}">Текущие задачи</a>
+      
+    {% endif %}
+        
+    
+{% endblock content %}
+    
+

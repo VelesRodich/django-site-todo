@@ -1,0 +1,20 @@
+
+
+{% if user.is_authenticated %}
+
+    Пользователь: {{ user.username }}
+
+<a href="{% url 'logoutuser' %}">Выйти</a>
+
+{% else %}
+    
+    <a href="{% url 'signupuser' %}">Зарегестрироваться</a>
+    <a href="{% url 'loginuser' %}">Войти</a>
+{% endif %}
+<br><a href="{% url 'home' %}">Домой</a>
+<br>
+<br>
+<br>
+
+{% block content %}{% endblock content %}
+    

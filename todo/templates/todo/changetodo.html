@@ -1,0 +1,21 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+{% csrf_token %}
+
+<a href="{% url 'todo:currenttodos' %}">Текущие задачи</a>
+<br>
+{{ error }}
+<br>
+<br>
+
+    
+<form method="POST">{% csrf_token %}
+  
+{{ form.as_p }}
+
+<button type="submit">изменить</button>
+</form>
+
+
+{% endblock content %}

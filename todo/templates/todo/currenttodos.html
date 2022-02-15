@@ -1,0 +1,30 @@
+{% extends 'todo/base.html' %}
+
+
+
+
+{% block content %}
+{% csrf_token %}
+<h2>Текущие дела:</h2>
+
+<ul>
+    {% for todo in todos %}
+    
+
+    <li>
+        <a href="{% url 'todo:viewtodo' todo.id %}">{% if todo.important %}
+            <b>{{ todo.title }}</b>
+            {% else %}
+            {{ todo.title }}
+            {% endif %} 
+    
+            {% if todo.memo %} - {{ todo.memo }} {% endif %} </a> 
+    </li>
+    
+    {% endfor %}  
+    <br><br><br><a href="{% url 'todo:createtodo' %}">Создать задачу</a> 
+
+
+</ul>
+
+{% endblock content %}

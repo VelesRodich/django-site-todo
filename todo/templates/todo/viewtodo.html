@@ -1,0 +1,30 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<b>{{ todo.title }}</b>
+<br><br><br>
+ 
+{% if todo.memo %}
+{{ todo.memo }}
+{% else %}
+<h2>заметок нет</h2>
+    
+{% endif %}
+<br>
+<br>
+<br>
+<button><a href="{% url 'todo:changetodo' todo.id %}">изменить задачу</a></button>
+<br>
+<br>
+<br>
+<form action="{% url 'todo:completetodo' todo.id %}" method="POST">{% csrf_token %}
+<button type="submit">Завершить Задачу</button>
+<br>
+<br>
+<form action="{% url 'todo:deletetodo' todo.id %}" method="POST">{% csrf_token %}
+<button type="submit">удалить задачу</button>
+
+</form>
+   
+
+{% endblock content %}

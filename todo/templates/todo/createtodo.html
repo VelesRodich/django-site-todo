@@ -1,0 +1,19 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+  
+<a href="{% url 'todo:currenttodos' %}">Текущие задачи</a>
+<br>
+<br>
+<br>
+<h1>Создать задачу</h1>
+
+<h2>{{ error }}</h2>
+<form method="post">{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Создать</button>
+</form>
+
+
+
+{% endblock content %}
